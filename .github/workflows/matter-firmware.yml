@@ -26,7 +26,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: espressif/esp-matter:latest
+      # Aliro is a Matter 1.4 feature. Pin that release line instead of using
+      # `latest`, which moved to ESP-IDF 6 and no longer provides the `json`
+      # component this firmware and current esp-matter release depend on.
+      image: espressif/esp-matter:release-v1.4
 
     steps:
       - uses: actions/checkout@v4
